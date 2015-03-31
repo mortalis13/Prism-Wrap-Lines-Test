@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="prism.css" rel="stylesheet" />
+    <style>
+      .prewrap{
+        width:50%;
+      }
+    </style>
+    
+    <title>Prism Line DIVs v1.0</title>
+  </head>
+  <body>
+  
+<div class="prewrap">
+<pre class="line-numbers"><code class="language-javascript">( function( global, $ ) {
+  var editor,
+  syncCSS = function() {
+    $('#custom_css_textarea').val( editor.getSession().getValue() );
+  },
+  loadAce = function() {
+    // editor = ace.edit( 'custom_css_div' );
+
+    /* global.safecss_editor = editor;
+    editor.getSession().setUseWrapMode( true );
+    editor.getSession().setValue( $( '#custom_css_textarea' ).val() );
+    editor.getSession().setMode("ace/mode/css"); */
+
+    $( '#options_form' ).submit( syncCSS );
+    editor.focus();
+  };
+
+  $( global ).load( loadAce );
+  global.aceSyncCSS = syncCSS;
+  
+} )( this, jQuery );</code></pre>  
+</div>  
+
+  <script src="prism.js"></script>
+  </body>
+</html>
